@@ -11,7 +11,7 @@ export const saveImage = (container, format = 'jpg') => {
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;  // 兼容safari老版本
   const date = moment().format('YYYY-DD-MM');
-  html2canvas(container).then(
+  html2canvas(container, {dpi: window.devicePixelRatio}).then(
     (canvas) => {
       let img = document.createElement('a');
       img.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
